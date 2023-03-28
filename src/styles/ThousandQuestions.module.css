@@ -1,0 +1,111 @@
+:root{
+    --primary-color:  rgba(136, 55, 243, 0.7);
+    --secondary-color: rgba(7, 18, 75, 0.76);
+ 
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width:100vw; 
+    padding: 0;
+    margin: 0;
+}
+
+
+.question{
+    background-color: antiquewhite;
+}
+
+.next{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.startAgain{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background: antiquewhite;
+}
+
+.blankContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: antiquewhite;
+}
+
+.blank{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    vertical-align: middle;
+    color:rgb(95, 52, 52);
+    text-transform: uppercase;
+}
+
+.blank h3{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.displayPage{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    
+}
+
+.sideBar{
+    flex-basis: 25%;
+}
+
+.questionBar{
+    flex-basis: 75%;
+    background: antiquewhite;
+    padding-top: 2.5rem;
+}
+
+@media screen and (min-width:460px) {
+    
+}
+
+@media screen and (min-width:560px) {
+    .blank h3{
+        font-size: 1.35rem;
+    }
+}
+
+
+@media screen and (min-width:670px) {
+    .blank h3{
+        font-size: 1.5rem;
+    }
+}
+
+
+@media screen and (min-width:850px) {
+    .blank h3{
+        font-size: 1.75rem;
+    }
+}
+
+
+@media screen and (min-width:1000px) {
+    .blank h3{
+        font-size: 2.0rem;
+    }
+}
+
+

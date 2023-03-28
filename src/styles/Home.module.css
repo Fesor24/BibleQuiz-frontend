@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,900;1,100;1,200;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root{
+    --white:  #ffffff;
+    --light-black: #353535;
+	--black: #000000;
+	--dark-brown:#B78758;
+	--light-brown:#D7BB8E;
+    --delay: 1;
+	--duration: 1500ms;
+	--iterations: 1;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+	width:100%;
+	height: 100vh;
+    background: linear-gradient(to right, rgb(29, 26, 26), rgb(95, 52, 52));
+    /* padding: 50px 50px 0px; */
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	/*flex-direction: column; */
+}
+
+.mainWrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.mainTitle{
+	/* color:bisque; */
+	color: hsl(38, 61%, 73%);
+	text-align: center;
+	text-transform: uppercase;
+	font-size: calc(1.6rem + 3vw);
+	letter-spacing: 2px;
+}
+
+.mainTitleEffect{
+	background-image: linear-gradient(90deg, transparent 0% 16.66%, hsl(38, 61%, 73%) 33.33% 50%,  transparent 66.66% 75%);
+	background-size: 500%;
+	background-clip: text;
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke: 0.5px hsl(38, 61%, 73%);
+	animation: slide-in 2s linear infinite;
+}
+
+.link{
+    padding-top: 1rem;
+    color: hsl(38, 61%, 73%);
+    text-decoration: none;
+	font-size: calc(.6rem + 2vw);
+}
+
+@keyframes slide-in{
+	0%{
+		/* opacity: 0;
+		transform: translateX(-50px); */
+		background-position: 100%;
+		
+	}
+	100%{
+		/* opacity: 1;
+		transform: translateY(0); */
+		background-position: 0%;
+		
+	}
+}
+
+@media screen and (max-width: 360px){
+	/* .mainTitle{
+		font-size: 1.2rem;
+	} */
+}
+
+@media screen and (min-width: 460px){
+	/* .mainTitle{
+		font-size: 1.8rem;
+	} */
+}
+
+@media screen and (min-width: 560px) {
+	/* .mainTitle{
+		font-size: 2rem;
+	} */
+
+	.link{
+		/* font-size: 1.3rem; */
+	}
+}
+
+@media screen and (min-width: 670px) {
+	/* .mainTitle{
+		font-size: 2.3rem;
+		letter-spacing: .2rem;
+
+	} */
+
+	.link{
+		/* font-size: 1.5rem; */
+	}
+}
+
+@media screen and (min-width: 850px) {
+	/* .mainTitle{
+		font-size: 2.7rem;
+		letter-spacing: .2rem;
+	} */
+
+	.link{
+		/* font-size: 1.6rem; */
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	/* .mainTitle{
+		font-size: 3.6rem;
+		letter-spacing: .2rem;
+	} */
+
+	.link{
+		/* font-size: 1.9rem; */
+	}
+}
+
+@media screen and (min-width: 1000px) and (max-height: 800px){
+	/* .mainTitle{
+		font-size: 3.6rem;
+		letter-spacing: .2rem;
+	} */
+
+	.link{
+		/* font-size: 1.4rem; */
+	}
+}
+
+
+
+
