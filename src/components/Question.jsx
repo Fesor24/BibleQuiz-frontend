@@ -53,7 +53,10 @@ function Question({
     console.log(question);
 
     if (onFailAddToRevise) {
-      await addRevisionQuestion(question)
+
+      const token = JSON.parse(localStorage.getItem('token'));
+
+      await addRevisionQuestion(question, token)
         .then((response) => {
           if (response.data.successful) {
             console.log(response.data.successful);
