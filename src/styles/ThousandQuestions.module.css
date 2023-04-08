@@ -53,6 +53,7 @@
     vertical-align: middle;
     color:rgb(95, 52, 52);
     text-transform: uppercase;
+    padding: 0 .7rem;
 }
 
 .blank h3{
@@ -74,7 +75,23 @@
 .questionBar{
     flex-basis: 75%;
     background: antiquewhite;
-    padding-top: 2.5rem;
+    padding-top: 2rem;
+    width:100%;
+    padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 290px) {
+    
+}
+
+@media screen and (max-width: 380px) {
+    .sideBar{
+        flex-basis:20%;
+    }
+
+    .questionBar{
+        flex-basis: 80%;
+    }
 }
 
 @media screen and (min-width:460px) {
@@ -92,6 +109,13 @@
     .blank h3{
         font-size: 1.5rem;
     }
+    .sideBar{
+        flex-basis:30%;
+    }
+
+    .questionBar{
+        flex-basis: 70%;
+    }
 }
 
 
@@ -102,9 +126,23 @@
 }
 
 
-@media screen and (min-width:1000px) {
+/* @media screen and (min-width:1000px) {
     .blank h3{
         font-size: 2.0rem;
+    }
+} */
+
+@media screen and (min-width: 1000px) and (min-height:400px) {
+    .blank h3{
+        font-size: 2.0rem;
+    }
+
+    .sideBar{
+        flex-basis:25%;
+    }
+
+    .questionBar{
+        flex-basis: 75%;
     }
 }
 

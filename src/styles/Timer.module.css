@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 .timer{
     /* background: antiquewhite; */
     display: flex;
@@ -23,6 +24,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+@media screen and (min-width: 355px) {
+    .timerText{
+        font-size: 1.7rem;
+    }
 }
 
 @media screen and (min-width:440px) {

@@ -5,7 +5,7 @@
     font-size: 1.2rem;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
-    border-radius: 30px;
+    border-radius: 20px;
     border: none;
     margin-top: .5rem;
     /* background-color: var(--secondary-color); */
@@ -76,14 +76,14 @@
     outline: none;
 }
 
-@media screen and (min-width: 355px) {
+@media screen and (max-width: 395px) {
     .btn{
-        font-size: .8rem;
-        padding: .6rem 1rem;
+        font-size: 1rem;
+        padding: .3rem 1rem;
     }
 
     .btnFirst{
-        font-size: 1.1rem;
+        font-size: 1rem;
         border-radius: 7px;
     }
 }
@@ -127,7 +127,7 @@
 @media screen and (min-width: 1000px) and (max-height:800px) {
     .btn{
         font-size: 1.6rem;
-        padding: 20px 35px;
+        padding: 13px 25px;
         margin: .7rem 0 .7rem 0;
         border-radius: 25px;
     }
