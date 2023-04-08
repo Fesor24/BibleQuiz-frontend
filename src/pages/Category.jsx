@@ -18,6 +18,14 @@ function Category() {
     
   }, [isLoggedIn]);
 
+  var curWidth = window.innerWidth;
+
+  // console.log(curWidth);
+
+  var desiredWidth = 400;
+
+  var phoneButton = curWidth < desiredWidth;
+
   const handleLogOut = () =>{
     setIsLoggedIn(false);
     localStorage.removeItem("token");
@@ -29,19 +37,34 @@ function Category() {
       <div className={style.mainWrapper}>
         <h1 className={style.mainTitle}>Sections</h1>
         <Link to="/thousand-questions">
-          <Button name="1000 Questions">
+          <Button
+            name="1000 Questions"
+            fontSize={phoneButton && "1.5rem"}
+            borderRadius={phoneButton && "20px"}
+            padding={phoneButton && ".7rem 1.5rem"}
+          >
             <i class="fa fa-file-text" aria-hidden="true"></i>
           </Button>
         </Link>
 
         <Link to="/fesor-questions">
-          <Button name="Fesor's Question">
+          <Button
+            name="Fesor's Question"
+            fontSize={phoneButton && "1.5rem"}
+            borderRadius={phoneButton && "20px"}
+            padding={phoneButton && ".7rem 1.5rem"}
+          >
             <i class="fa fa-user" aria-hidden="true"></i>
           </Button>
         </Link>
 
         <Link to="/revise-questions">
-          <Button name="Revise Questions">
+          <Button
+            name="Revise Questions"
+            fontSize={phoneButton && "1.5rem"}
+            borderRadius={phoneButton && "20px"}
+            padding={phoneButton && ".7rem 1.5rem"}
+          >
             <i class="fa-brands fa-think-peaks"></i>
           </Button>
         </Link>
@@ -49,7 +72,13 @@ function Category() {
         {isLoggedIn ? (
           <>
             <Link to="/category">
-              <Button name="Logout" click={handleLogOut}>
+              <Button
+                name="Logout"
+                click={handleLogOut}
+                fontSize={phoneButton && "1.5rem"}
+                borderRadius={phoneButton && "20px"}
+                padding={phoneButton && ".7rem 1.5rem"}
+              >
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
               </Button>
             </Link>
@@ -57,7 +86,12 @@ function Category() {
         ) : (
           <>
             <Link to="/login">
-              <Button name="Login">
+              <Button
+                name="Login"
+                fontSize={phoneButton && "1.5rem"}
+                borderRadius={phoneButton && "20px"}
+                padding={phoneButton && ".7rem 1.5rem"}
+              >
                 <i class="fa-solid fa-right-from-bracket"></i>
               </Button>
             </Link>
