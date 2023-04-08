@@ -1,6 +1,8 @@
 export default class ApiRoutes {
   static BASE_URL = "https://localhost:7230/";
 
+  static BASE_URL_DOC = "http://localhost:4000/";
+
   static FetchThousandQuestions = "api/thousand-questions/fetch";
 
   static AddRevisionQuestion = "api/revision-question/add";
