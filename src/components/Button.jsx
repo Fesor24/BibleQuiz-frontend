@@ -1,11 +1,25 @@
 import React from "react";
 import style from "../styles/Button.module.css";
 
-function Button({ name, click, children, disabled, color, backgroundColor, display, padding, type, height,width, borderRadius }) {
+function Button({
+  name,
+  click,
+  children,
+  disabled,
+  color,
+  backgroundColor,
+  display,
+  padding,
+  type,
+  height,
+  width,
+  borderRadius,
+  fontSize
+}) {
   return (
     <button
       className={`${style.btn} ${style.btnFirst}`}
-      type = {type}
+      type={type}
       disabled={disabled}
       onClick={click}
       style={{
@@ -13,9 +27,10 @@ function Button({ name, click, children, disabled, color, backgroundColor, displ
         backgroundColor: backgroundColor,
         display: display,
         padding: padding,
-        height:height,
+        height: height,
         width: width,
-        borderRadius: borderRadius
+        borderRadius: borderRadius,
+        fontSize: fontSize
       }}
     >
       {name} &nbsp;{children}
