@@ -47,6 +47,8 @@ function FesorQuestions() {
   const addRevisionQuestion = useAddRevisionQuestion();
 
   useEffect(() => {
+
+    document.title = "Fesors' Questions";
     const access = JSON.parse(localStorage.getItem("hasAccess"));
 
     setAccess(access);
