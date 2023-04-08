@@ -109,6 +109,8 @@ function ThousandQuestions() {
 
   // Setting timer function in use effect
   useEffect(() => {
+
+    document.title = "Thousand Questions";
     // if (isAuthenticated){
     if (countdown > 0) {
       timerId = setTimeout(() => {
