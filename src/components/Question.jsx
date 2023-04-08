@@ -19,27 +19,7 @@ function Question({
   disabledButtons,
 }) {
 
-
   const addRevisionQuestion = useAddRevisionQuestion();
-
-  const successMessages = [
-    "Ileri boys go hear, se dem fit?",
-    "Be like this year na our year o",
-    "Damn!! You guys on fire",
-    "Nice! Perfecto",
-    "Daddy's proud",
-    "They won't see GTCC coming this year",
-    "Dem go collect this year",
-  ];
-
-  const failureMessages = [
-    "Haba, even Wale knows it",
-    "Smh!! We'll get there sha",
-    "Hmmm...I smell 4th position this year",
-    "Baptist boys are coming, just dey play",
-    "Wahala! Wahala! Wahala!!!",
-    "So sad",
-  ];
 
   const onFailClick = async () => {
 
@@ -80,22 +60,11 @@ function Question({
       showMethod: "fadeIn",
       hideMethod: "fadeOut",
     };
-
-    const randomNumber = Math.floor(Math.random() * 6);
-    
-  //   closeButton: true,
-    //   progressBar: true,
-    //   timeOut: 2000,
-    //   extendedTimeOut: 1000,
-    // });
-    // toastr.error(failureMessages[randomNumber], {
   
-
     console.log("finished", questionsFinished);
   };
 
   const onSuccessClick = () => {
-    // correctAnswers();
 
     handleCorrectAnswerAndDisableButton();
 
