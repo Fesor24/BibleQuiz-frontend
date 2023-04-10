@@ -21,7 +21,7 @@ function Timer({
             : countdown}
         </p>
 
-        <div>
+        <div class={style.btnGroup}>
           <Button click={handleNextButtonClick}>
             <i class="fa fa-arrow-right" aria-hidden="true"></i>
           </Button>
