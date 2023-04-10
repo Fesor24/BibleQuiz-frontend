@@ -39,35 +39,37 @@ function Category() {
         <Link to="/thousand-questions">
           <Button
             name="1000 Questions"
-            fontSize={phoneButton && "1.5rem"}
+            fontSize={phoneButton && "1.3rem"}
             borderRadius={phoneButton && "20px"}
             padding={phoneButton && ".7rem 1.5rem"}
           >
             <i class="fa fa-file-text" aria-hidden="true"></i>
           </Button>
         </Link>
-
+        {/* <p className={style.info}>Questions from BibleQuiz.Org</p> */}
         <Link to="/fesor-questions">
           <Button
             name="Fesor's Question"
-            fontSize={phoneButton && "1.5rem"}
+            fontSize={phoneButton && "1.3rem"}
             borderRadius={phoneButton && "20px"}
             padding={phoneButton && ".7rem 1.5rem"}
           >
             <i class="fa fa-user" aria-hidden="true"></i>
           </Button>
         </Link>
+        {/* <p className={style.info}>Questions from preachings/study</p> */}
 
         <Link to="/revise-questions">
           <Button
             name="Revise Questions"
-            fontSize={phoneButton && "1.5rem"}
+            fontSize={phoneButton && "1.3rem"}
             borderRadius={phoneButton && "20px"}
             padding={phoneButton && ".7rem 1.5rem"}
           >
             <i class="fa-brands fa-think-peaks"></i>
           </Button>
         </Link>
+        {/* <p className={style.info}>Failed questions will be added here</p> */}
 
         {isLoggedIn ? (
           <>
@@ -75,7 +77,7 @@ function Category() {
               <Button
                 name="Logout"
                 click={handleLogOut}
-                fontSize={phoneButton && "1.5rem"}
+                fontSize={phoneButton && "1.3rem"}
                 borderRadius={phoneButton && "20px"}
                 padding={phoneButton && ".7rem 1.5rem"}
               >
@@ -88,7 +90,7 @@ function Category() {
             <Link to="/login">
               <Button
                 name="Login"
-                fontSize={phoneButton && "1.5rem"}
+                fontSize={phoneButton && "1.3rem"}
                 borderRadius={phoneButton && "20px"}
                 padding={phoneButton && ".7rem 1.5rem"}
               >
