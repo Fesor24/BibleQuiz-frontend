@@ -104,11 +104,13 @@ function Question({
     <>
       {questionsFinished && (
         <>
+        <div className={style.container}>
           <div className={style.finishedQuestions}>
             <h2>
               session completed &nbsp;
               <i class="fa-sharp fa-solid fa-circle-check"></i>
             </h2>
+          </div>
           </div>
         </>
       )}
