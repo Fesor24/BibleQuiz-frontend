@@ -20,6 +20,10 @@
 
 .question{
     background-color: antiquewhite;
+    height: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 .next{
@@ -62,25 +66,60 @@
 }
 
 .displayPage{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     height: 100vh;
     
 }
 
-.sideBar{
+/* .sideBar{
     flex-basis: 25%;
+} */
+
+.sideBar{
+     position: fixed;
+    top: 0;
+    left:0;
+    /* left: -250px; */
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    color: #fff;
+    transition: left 0.4s ease;
+    z-index: 20;
+    
+}
+
+.cancel{
+    position: absolute;
+    right: 0;
+    top:0;
+    margin-right: 3rem;
+    margin-top: 3rem;
+    color: hsl(38, 61%, 73%);
+    cursor: pointer;
+}
+
+.openMenu{
+    position: absolute;
+    left:0;
+    top:0;
+    margin-top:2rem;
+    margin-left:2rem;
+    color: rgb(29, 26, 26);
+    cursor: pointer;
 }
 
 .questionBar{
-    flex-basis: 75%;
+    /* flex-basis: 75%; */
     background: antiquewhite;
     padding-top: 2rem;
     width:100%;
     padding: 1rem 2rem;
+    height:100%
 }
 
-@media screen and (max-width: 290px) {
+/* @media screen and (max-width: 363px) {
     
 }
 
@@ -92,9 +131,9 @@
     .questionBar{
         flex-basis: 80%;
     }
-}
+} */
 
-@media screen and (min-width:460px) {
+/* @media screen and (min-width:460px) {
     
 }
 
@@ -102,10 +141,10 @@
     .blank h3{
         font-size: 1.35rem;
     }
-}
+} */
 
 
-@media screen and (min-width:670px) {
+/* @media screen and (min-width:670px) {
     .blank h3{
         font-size: 1.5rem;
     }
@@ -116,14 +155,14 @@
     .questionBar{
         flex-basis: 70%;
     }
-}
+} */
 
 
-@media screen and (min-width:850px) {
+/* @media screen and (min-width:850px) {
     .blank h3{
         font-size: 1.75rem;
     }
-}
+} */
 
 
 /* @media screen and (min-width:1000px) {
@@ -138,12 +177,9 @@
     }
 
     .sideBar{
-        flex-basis:25%;
+        width: 420px;
     }
 
-    .questionBar{
-        flex-basis: 75%;
-    }
 }
 
 

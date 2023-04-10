@@ -13,6 +13,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: .5rem;
 }
 
 .timerText{
@@ -21,9 +22,17 @@
     color: rgb(95, 52, 52);
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center; */
+    /* flex:1; */
+}
+
+.btnGroup{
+    /* flex:1; */
+    /* display: flex;
+    align-items: end; */
+    /* margin-left: auto; */
 }
 
 @media screen and (min-width: 355px) {
@@ -71,5 +80,6 @@
 @media screen and (min-width: 1000px) and (min-height:400px) {
     .timer{
         flex-direction: row;
+        justify-content: space-around;
     }
 }
