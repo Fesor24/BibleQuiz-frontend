@@ -20,6 +20,8 @@ function ThousandQuestions() {
 
   const [access, setAccess] = useState(false);
 
+  const [sideBar, setSideBar] = useState('-450px'); 
+
   const [questionsFinished, setQuestionsFinished] = useState(false);
 
   const questions = useSelector((state) => state.thousandQuestions.queue);
@@ -216,6 +218,14 @@ function ThousandQuestions() {
     dispatch(Action.resetIndexAction());
   };
 
+  const closeSideBar =()=>{
+    setSideBar('-450px')
+  }
+
+  const openSideBar =() => {
+    setSideBar('0');
+  }
+
   return (
     <>
       {access ? (
@@ -238,7 +248,13 @@ function ThousandQuestions() {
             <>
               <div className={style.container}>
                 <div className={style.displayPage}>
-                  <div className={style.sideBar}>
+                  <div className={style.sideBar} style={{ left: sideBar }}>
+                    <p className={style.cancel}>
+                      <i
+                        class="fa-solid fa-xmark fa-2x"
+                        onClick={closeSideBar}
+                      ></i>
+                    </p>
                     <Sidebar
                       correct={correctAnswers}
                       wrong={wrongAnswers}
@@ -250,6 +266,9 @@ function ThousandQuestions() {
                   <div className={style.questionBar}>
                     {!questionsFinished && (
                       <>
+                        <p className={style.openMenu}>
+                          <i class="fa-solid fa-bars fa-2x" onClick={openSideBar}></i>
+                        </p>
                         <Timer
                           countdown={countdown}
                           handleNextButtonClick={handleNextButtonClick}

@@ -19,6 +19,8 @@ function FesorQuestions() {
 
   const [fesorQuestions, setFesorQuestions] = useState();
 
+  const [sideBar, setSideBar] = useState("-450px"); 
+
   const [access, setAccess] = useState(false);
 
   const [questionsFinished, setQuestionsFinished] = useState(false);
@@ -212,6 +214,14 @@ function FesorQuestions() {
     dispatch(Action.resetIndexAction());
   };
 
+   const closeSideBar = () => {
+     setSideBar("-450px");
+   };
+
+   const openSideBar = () => {
+     setSideBar("0");
+   };
+
   return (
     <>
       {access ? (
@@ -236,7 +246,13 @@ function FesorQuestions() {
             <>
               <div className={style.container}>
                 <div className={style.displayPage}>
-                  <div className={style.sideBar}>
+                  <div className={style.sideBar} style={{ left: sideBar }}>
+                    <p className={style.cancel}>
+                      <i
+                        class="fa-solid fa-xmark fa-2x"
+                        onClick={closeSideBar}
+                      ></i>
+                    </p>
                     <Sidebar
                       key={"fesor-question"}
                       correct={correctAnswers}
@@ -249,6 +265,12 @@ function FesorQuestions() {
                   <div className={style.questionBar}>
                     {!questionsFinished && (
                       <>
+                        <p className={style.openMenu}>
+                          <i
+                            class="fa-solid fa-bars fa-2x"
+                            onClick={openSideBar}
+                          ></i>
+                        </p>
                         <Timer
                           countdown={countdown}
                           handleNextButtonClick={handleNextButtonClick}
@@ -261,6 +283,7 @@ function FesorQuestions() {
                     {questionsFinished && (
                       <>
                         <div className={style.startAgain}>
+                          
                           <Link to="/category">
                             <Button
                               name="Back to Category"

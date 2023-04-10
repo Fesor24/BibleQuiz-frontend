@@ -35,7 +35,9 @@ function RevisionQuestions() {
 
   const navigate = useNavigate();
 
-  const countdownNumber = 10;
+  const [sideBar, setSideBar] = useState("-450px"); 
+
+  const countdownNumber = 45;
 
   const { correctAnswers, wrongAnswers, questionsAttempted, index } =
     useSelector((state) => state.revisionQuestions);
@@ -194,6 +196,14 @@ function RevisionQuestions() {
     dispatch(Action.resetIndexAction());
   };
 
+    const closeSideBar = () => {
+      setSideBar("-450px");
+    };
+
+    const openSideBar = () => {
+      setSideBar("0");
+    };
+
   return (
     <>
       {access ? (
@@ -215,7 +225,13 @@ function RevisionQuestions() {
           ) : (
             <div className={style.container}>
               <div className={style.displayPage}>
-                <div className={style.sideBar}>
+                <div className={style.sideBar} style={{ left: sideBar }}>
+                  <p className={style.cancel}>
+                    <i
+                      class="fa-solid fa-xmark fa-2x"
+                      onClick={closeSideBar}
+                    ></i>
+                  </p>
                   <Sidebar
                     correct={correctAnswers}
                     wrong={wrongAnswers}
@@ -227,6 +243,12 @@ function RevisionQuestions() {
                 <div className={style.questionBar}>
                   {!questionsFinished && (
                     <>
+                      <p className={style.openMenu}>
+                        <i
+                          class="fa-solid fa-bars fa-2x"
+                          onClick={openSideBar}
+                        ></i>
+                      </p>
                       <Timer
                         countdown={countdown}
                         handleNextButtonClick={handleNextButtonClick}
