@@ -124,12 +124,16 @@ function Register() {
             localStorage.setItem(
               "token",
               JSON.stringify(response.data.result.token)
+              
             );
+              toastr.success("Registered");
+
             if (response.data.result.permission === 1) {
               localStorage.setItem("hasAccess", JSON.stringify(true));
               navigate("/category");
             } else {
               localStorage.setItem("hasAccess", JSON.stringify(false));
+
               navigate("/category");
             }
           } else {
@@ -173,7 +177,7 @@ function Register() {
             </span>
             <input
               type="text"
-              placeholder="Enter your email"
+              placeholder="name@gtcc.com"
               name="email"
               onChange={(e) => handleValidation(e)}
             />

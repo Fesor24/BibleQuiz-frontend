@@ -60,11 +60,11 @@
 
 @media screen and (max-width: 380px) {
     .question{
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .answer p{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
 

@@ -94,8 +94,9 @@ function Login() {
           } else {
             localStorage.setItem("hasAccess", JSON.stringify(false));
           }
-
-          navigate("/category");
+          toastr.success("Signed in");
+          navigate(-2)
+          // navigate("/category");
         } else {
           toastr.error(response.data.errorMessage);
         }

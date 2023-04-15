@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,900;1,100;1,200;1,500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container{
+    background-color: antiquewhite;
+    height:100vh;
+    width: 100%;
+}
+
+.mainWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0px 1.5rem;
+
+}
+
+.source{
+    font-size: 1.5rem;
+    text-align: center;
+    color:rgb(29, 26, 26)
+}
+
+@media screen and (min-width: 1000px) and (min-height:400px) {
+    .source{
+    font-size: 2.5rem;
+    
+}
+
+}

@@ -11,6 +11,8 @@ import FesorQuestions from "./pages/FesorQuestions";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Admin from "./pages/Admin";
+import ThousandQSourceMessage from "./pages/ThousandQSourceMessage";
+import FesorSourceMessage from "./pages/FesorSourceMessage";
 
 function App() {
   // const ThousandQuestionsWithAuth = RequireAuth(ThousandQuestions);
@@ -21,8 +23,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="category" element={<Category />} />
         <Route path="fesor-questions" element={<FesorQuestions />} />
+        <Route path="fq-source" element={<FesorSourceMessage />} />
         <Route path="revise-questions" element={<RevisionQuestions />} />
         <Route path="thousand-questions" element={<ThousandQuestions />} />
+        <Route path= "tq-source" element= {<ThousandQSourceMessage />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin/>}/>

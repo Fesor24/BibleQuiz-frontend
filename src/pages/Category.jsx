@@ -36,7 +36,7 @@ function Category() {
     <div className={style.container}>
       <div className={style.mainWrapper}>
         <h1 className={style.mainTitle}>Sections</h1>
-        <Link to="/thousand-questions">
+        <Link to="/tq-source">
           <Button
             name="1000 Questions"
             fontSize={phoneButton && "1.3rem"}
@@ -47,7 +47,7 @@ function Category() {
           </Button>
         </Link>
         {/* <p className={style.info}>Questions from BibleQuiz.Org</p> */}
-        <Link to="/fesor-questions">
+        <Link to="/fq-source">
           <Button
             name="Fesor's Question"
             fontSize={phoneButton && "1.3rem"}
