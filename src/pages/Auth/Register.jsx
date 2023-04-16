@@ -136,10 +136,10 @@ function Register() {
             }
               const relPath = localStorage.getItem("relPath");
 
-              console.log(relPath, "relpath from login");
+              // console.log(relPath, "relpath from login");
 
               if (relPath) {
-                console.log("relpath hit");
+                // console.log("relpath hit");
                 navigate(relPath);
                 localStorage.removeItem("relPath");
               } else {
@@ -148,7 +148,7 @@ function Register() {
 
           } else {
             console.log(response.data.errorMessage);
-            toastr.error(response.data.errorMessage);
+            toastr.error("Unauthorized");
           }
         })
         .catch((error) => {
