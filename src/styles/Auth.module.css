@@ -24,6 +24,10 @@
     text-decoration: none;
 }
 
+.linkTextSec{
+    color:rgb(231, 246, 254)
+}
+
 .validateText{
     color: rgb(209, 63, 26);
     font-size: 1.04rem;

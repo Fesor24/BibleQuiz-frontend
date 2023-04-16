@@ -177,7 +177,10 @@ function Login(props) {
         <br />
         <p className={authStyles.linkText}>
           Don't have an account?
-          <Link to="/register" className={authStyles.linkText}>
+          <Link
+            to="/register"
+            className={`${authStyles.linkText} ${authStyles.linkTextSec}`}
+          >
             {" "}
             Click to register
           </Link>
