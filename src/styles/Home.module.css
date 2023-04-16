@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
 :root{
     --white:  #ffffff;
     --light-black: #353535;
@@ -28,7 +30,7 @@ body, html{
 	width:100%;
 	min-height: 100vh;
     /* background: linear-gradient(to right, rgb(29, 26, 26), rgb(95, 52, 52)); */
-	background: linear-gradient(to right, rgb(203, 226, 238), rgb(47, 49, 146));
+	background: linear-gradient(to right, rgb(130, 166, 185), rgb(47, 49, 146));
     display: flex;
 	justify-content: center;
 	align-items: center;
@@ -44,7 +46,8 @@ body, html{
 }
 
 .mainTitle{
-	font-family: 'Pacifico', cursive;
+	/* font-family: 'Pacifico', cursive; */
+	font-family: 'Alfa Slab One', cursive;
 	/* color: hsl(38, 61%, 73%); */
 	color: rgb(47, 49, 146);
 	text-align: center;
