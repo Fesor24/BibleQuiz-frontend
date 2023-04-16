@@ -2,10 +2,18 @@ import React from "react";
 import style from "../styles/Sidebar.module.css";
 import Circle from "../components/Circle";
 
-function Sidebar({ correct, wrong, remaining, total }) {
+function Sidebar({ correct, wrong, remaining, total, setSideBar }) {
+
+   const closeSideBar = () => {
+     setSideBar("-450px");
+   };
 
   return (
     <div className={style.container}>
+      <p className={style.cancel}>
+        <i class="fa-solid fa-xmark fa-2x" onClick={closeSideBar}></i>
+      </p>
+
       <div className={style.sidebar}>
         <div className={style.content}>
           <p className={style.contentText}>Correct</p>

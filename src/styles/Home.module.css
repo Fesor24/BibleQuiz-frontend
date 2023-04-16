@@ -27,7 +27,8 @@ body, html{
 .container{
 	width:100%;
 	min-height: 100vh;
-    background: linear-gradient(to right, rgb(29, 26, 26), rgb(95, 52, 52));
+    /* background: linear-gradient(to right, rgb(29, 26, 26), rgb(95, 52, 52)); */
+	background: linear-gradient(to right, rgb(231, 246, 254), rgb(47, 49, 146));
     display: flex;
 	justify-content: center;
 	align-items: center;
@@ -44,7 +45,8 @@ body, html{
 
 .mainTitle{
 	font-family: 'Pacifico', cursive;
-	color: hsl(38, 61%, 73%);
+	/* color: hsl(38, 61%, 73%); */
+	color: rgb(47, 49, 146);
 	text-align: center;
 	text-transform: uppercase;
 	font-size: calc(1.6rem + 3vw);
@@ -53,18 +55,18 @@ body, html{
 }
 
 .mainTitleEffect{
-	background-image: linear-gradient(90deg, transparent 0% 16.66%, hsl(38, 61%, 73%) 33.33% 50%,  transparent 66.66% 75%);
+	background-image: linear-gradient(90deg, transparent 0% 16.66%, rgb(47, 49, 146) 33.33% 50%,  transparent 66.66% 75%);
 	background-size: 500%;
 	background-clip: text;
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
-	-webkit-text-stroke: 0.5px hsl(38, 61%, 73%);
+	-webkit-text-stroke: 0.5px rgb(231, 246, 254);
 	animation: slide-in 2s linear infinite;
 }
 
 .link{
     padding-top: 1rem;
-    color: hsl(38, 61%, 73%);
+    color: rgb(47, 49, 146);
     text-decoration: none;
 	font-size: calc(1rem + .7vw);
 }

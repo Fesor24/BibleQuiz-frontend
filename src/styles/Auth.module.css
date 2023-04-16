@@ -11,14 +11,14 @@
 .formBox input{
     padding: 10px 15px;
     margin: 10px 0;
-    border: 1px solid brown;
+    border: 1px solid rgb(231, 246, 254);
     border-radius: 10px;
     font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
 }
 
 .linkText{
-    color: bisque;
+    color: rgb(47, 49, 146);
     margin: .7rem auto 0;
     font-size: 1rem;
     text-decoration: none;

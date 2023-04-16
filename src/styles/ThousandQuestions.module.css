@@ -19,7 +19,7 @@
 
 
 .question{
-    background-color: antiquewhite;
+    background-color: rgb(231, 246, 254);
     /* height: 100%; */
     /* display: flex;
     align-items: center;
@@ -38,7 +38,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background: antiquewhite;
+    background: rgb(231, 246, 254);
 }
 
 .blankContainer{
@@ -46,7 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: antiquewhite;
+    background: rgb(255, 255, 255);
 }
 
 .blank{
@@ -55,7 +55,7 @@
     align-items: center;
     justify-content: flex-start;
     vertical-align: middle;
-    color:rgb(95, 52, 52);
+    color:rgb(47, 49, 146);
     text-transform: uppercase;
     padding: 0 .7rem;
 }
@@ -106,13 +106,13 @@
     top:0;
     margin-top:2rem;
     margin-left:2rem;
-    color: rgb(29, 26, 26);
+    color: rgb(47, 49, 146);
     cursor: pointer;
 }
 
 .questionBar{
     /* flex-basis: 75%; */
-    background: antiquewhite;
+    background: rgb(231, 246, 254);
     padding-top: 2rem;
     width:100%;
     padding: 1rem 2rem;

@@ -6,19 +6,18 @@
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     border-radius: 20px;
-    border: none;
     margin-top: .5rem;
-    /* background-color: var(--secondary-color); */
-    background-color: rgb(29, 26, 26);
-    color: hsl(38, 61%, 73%);
+    background-color: rgb(47, 49, 146);
+    color: rgb(231, 246, 254);
     cursor: pointer;
     position: relative;
     overflow: hidden;
     animation: bounce 2s ease-in;
     /* animation-duration: 2s; */
     animation-fill-mode: both;
-    box-shadow: 0 0 5px rgba(153, 76, 76, 0.9);
+    box-shadow: 0 0 5px rgb(231, 246, 254);
     display: inline-block;
+    border: 1px solid rgb(231, 246, 254);
     width: auto;
 }
 
@@ -34,7 +33,7 @@
     }
 }
 
-.btn:before{
+/* .btn:before{
     content: "";
     position: absolute;
     top: 50%;
@@ -45,14 +44,14 @@
     border-radius: 100%;
     transform: translate(-50%, -50%);
     transition: width 0.3s ease-out, height 0.3s ease-out;
-}
+} */
 
-.btn:hover:before{
+/* .btn:hover:before{
     width: 300px;
     height: 300px;
-}
+} */
 
-.btn:after{
+/* .btn:after{
     content: "";
     position: absolute;
     top: 50%;
@@ -64,12 +63,13 @@
     transform: translate(-50%, -50%);
     transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     opacity: 0;
-}
+} */
 
 .btn:hover{
-    background-color: hsl(38, 61%, 73%);
-    color:rgb(95, 52, 52);
+    background-color: rgb(231, 246, 254);
+    color:rgb(47, 49, 146);
     font-weight: bold;
+    border: 3px solid rgb(47, 49, 146) !important;
 }
 
 .btn:focus{

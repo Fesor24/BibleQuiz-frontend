@@ -41,7 +41,7 @@ function Home() {
           </Button>
         </Link>
       </div>
-      <p className={style.developer}>Developed by <a href="mailto:onafesowale@gmail.com">Fesor</a></p>
+      {/* <p className={style.developer}>Developed by <a href="mailto:onafesowale@gmail.com">Fesor</a></p> */}
     </div>
   );
 }

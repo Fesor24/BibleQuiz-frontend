@@ -18,14 +18,14 @@
 .question{
     font-size: 1.5rem;
     font-weight: 900;
-    color: rgb(95, 52, 52);
+    color: rgba(47, 49, 146,1);
 }
 
 .answer p{
     font-size: 1.3rem;
     font-weight: bold;
     margin: 10px 0 4px;
-    color: peru;
+    color: rgba(47, 49, 146, .5);
 }
 
 .btnGroup{
@@ -48,7 +48,7 @@
     text-transform: uppercase;
     margin-top: 2rem;
     text-align: center;
-    color: rgb(95, 52, 52);
+    color: rgb(47, 49, 146);
 }
 
 

@@ -249,14 +249,15 @@ function ThousandQuestions() {
               <div className={style.container}>
                 <div className={style.displayPage}>
                   <div className={style.sideBar} style={{ left: sideBar }}>
-                    <p className={style.cancel}>
+                    {/* <p className={style.cancel}>
                       <i
                         class="fa-solid fa-xmark fa-2x"
                         onClick={closeSideBar}
                       ></i>
-                    </p>
+                    </p> */}
                     <Sidebar
                       correct={correctAnswers}
+                      setSideBar={setSideBar}
                       wrong={wrongAnswers}
                       remaining={questions?.length - questionsAttempted}
                       total={questions?.length}

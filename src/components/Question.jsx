@@ -104,13 +104,13 @@ function Question({
     <>
       {questionsFinished && (
         <>
-        <div className={style.container}>
-          <div className={style.finishedQuestions}>
-            <h2>
-              session completed &nbsp;
-              <i class="fa-sharp fa-solid fa-circle-check"></i>
-            </h2>
-          </div>
+          <div className={style.container}>
+            <div className={style.finishedQuestions}>
+              <h2>
+                session completed &nbsp;
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+              </h2>
+            </div>
           </div>
         </>
       )}
@@ -134,15 +134,28 @@ function Question({
             </div>
 
             <div class={style.btnGroup}>
-              <Button name="Answer" click={handleDisplayAnswer}>
+              <Button
+                name="Answer"
+                click={handleDisplayAnswer}
+                border={
+                  disabledButtons
+                    ? "2px solid rgb(47, 49, 146)"
+                    : "2px solid rgb(231, 246, 254)"
+                }
+              >
                 <i class="fa fa-book" aria-hidden="true"></i>
               </Button>
               <Button
                 name="Right"
                 disabled={disabledButtons}
                 click={onSuccessClick}
-                backgroundColor={disabledButtons && "gray"}
-                color={disabledButtons && "brown"}
+                backgroundColor={disabledButtons && "rgb(231, 246, 254)"}
+                color={disabledButtons && "rgb(47, 49, 146)"}
+                border={
+                  disabledButtons
+                    ? "2px solid rgb(47, 49, 146)"
+                    : "2px solid rgb(231, 246, 254)"
+                }
               >
                 <i class="fa fa-check" aria-hidden="true"></i>
               </Button>
@@ -150,8 +163,13 @@ function Question({
                 name="Wrong"
                 disabled={disabledButtons}
                 click={onFailClick}
-                backgroundColor={disabledButtons && "gray"}
-                color={disabledButtons && "brown"}
+                backgroundColor={disabledButtons && "rgb(231, 246, 254)"}
+                color={disabledButtons && "rgb(47, 49, 146)"}
+                border={
+                  disabledButtons
+                    ? "2px solid rgb(47, 49, 146)"
+                    : "2px solid rgb(231, 246, 254)"
+                }
               >
                 <i class="fa fa-times" aria-hidden="true"></i>
               </Button>
