@@ -64,7 +64,7 @@ function Register() {
         setFormErrors(
           produce((draft) => {
             if (value === undefined || value === null || value.length === 0) {
-              draft.firstName = "Email is required";
+              draft.email = "Email is required";
               setDisableButton(true);
             } else {
               draft.email = "";
