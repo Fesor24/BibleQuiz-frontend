@@ -130,12 +130,22 @@ function Register() {
 
             if (response.data.result.permission === 1) {
               localStorage.setItem("hasAccess", JSON.stringify(true));
-              navigate("/category");
+              
             } else {
               localStorage.setItem("hasAccess", JSON.stringify(false));
-
-              navigate("/category");
             }
+              const relPath = localStorage.getItem("relPath");
+
+              console.log(relPath, "relpath from login");
+
+              if (relPath) {
+                console.log("relpath hit");
+                navigate(relPath);
+                localStorage.removeItem("relPath");
+              } else {
+                navigate("/category");
+              }
+
           } else {
             console.log(response.data.errorMessage);
             toastr.error(response.data.errorMessage);
@@ -196,9 +206,16 @@ function Register() {
                 type="submit"
                 name="Proceed"
                 disabled={disableButton}
-                color={disableButton ? "rgb(29, 26, 26)" : "hsl(38, 61%, 73%)"}
+                color={
+                  disableButton ? "rgb(47, 49, 146)" : "rgb(231, 246, 254)"
+                }
                 backgroundColor={
-                  disableButton ? "hsl(38, 61%, 73%)" : "rgb(29, 26, 26)"
+                  disableButton ? "rgb(231, 246, 254)" : "rgb(47, 49, 146)"
+                }
+                border={
+                  disableButton
+                    ? "2px solid rgb(47, 49, 146)"
+                    : "2px solid rgb(231, 246, 254)"
                 }
               />
               &nbsp;&nbsp;

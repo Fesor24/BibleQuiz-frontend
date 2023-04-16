@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "../../components/Button";
 import toastr from "toastr";
@@ -7,8 +7,10 @@ import authStyles from "../../styles/Auth.module.css";
 import { useLoginUser } from "../../api/ApiClient";
 import produce from "immer";
 
-function Login() {
+function Login(props) {
   const navigate = useNavigate();
+
+  // console.log(props.location.state.from);
 
   const [formData, setFormData] = useState({
     email: undefined,
@@ -90,15 +92,31 @@ function Login() {
 
           if (response.data.result.permission === 1) {
             localStorage.setItem("hasAccess", JSON.stringify(true));
-            navigate("category");
+            // navigate("category");
+            
+            
+            // navigate("category");
           } else {
             localStorage.setItem("hasAccess", JSON.stringify(false));
           }
           toastr.success("Signed in");
-          navigate(-2)
-          // navigate("/category");
+
+          const relPath = localStorage.getItem('relPath');
+
+          console.log(relPath, "relpath from login")
+
+          if (relPath) {
+            console.log("relpath hit");
+            navigate(relPath);
+            localStorage.removeItem('relPath')
+          }
+          else{
+            navigate("/category");
+          }
+          
         } else {
-          toastr.error(response.data.errorMessage);
+          console.log(response.data.errorMessage)
+          toastr.error("Unauthorized");
         }
       })
       .catch((error) => {
@@ -137,9 +155,16 @@ function Login() {
                 type="submit"
                 name="Proceed"
                 disabled={disableButton}
-                color={disableButton ? "rgb(29, 26, 26)" : "hsl(38, 61%, 73%)"}
+                color={
+                  disableButton ? "rgb(47, 49, 146)" : "rgb(231, 246, 254)"
+                }
                 backgroundColor={
-                  disableButton ? "hsl(38, 61%, 73%)" : "rgb(29, 26, 26)"
+                  disableButton ? "rgb(231, 246, 254)" : "rgb(47, 49, 146)"
+                }
+                border={
+                  disableButton
+                    ? "2px solid rgb(47, 49, 146)"
+                    : "2px solid rgb(231, 246, 254)"
                 }
               />
               &nbsp;&nbsp;

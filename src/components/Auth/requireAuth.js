@@ -26,8 +26,18 @@ const RequireAuth = (Component) => {
       return <Component {...props} />;
     }
     else{
+
+      console.log(window.location.pathname)
+
+      // Get the relative path the user wants to access
+      const relPath = window.location.pathname;
+
+      // Set it in session storage
+      localStorage.setItem('relPath', relPath);
+
       // Redirect user to login page     
       return <Navigate to="/login" replace={true} />;
+    
     }
   }
 
