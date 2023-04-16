@@ -204,7 +204,7 @@ function Register() {
             <div className={authStyles.btnGroup}>
               <Button
                 type="submit"
-                name="Proceed"
+                name="Register"
                 disabled={disableButton}
                 color={
                   disableButton ? "rgb(47, 49, 146)" : "rgb(231, 246, 254)"

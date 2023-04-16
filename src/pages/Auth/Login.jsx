@@ -153,7 +153,7 @@ function Login(props) {
             <div className={authStyles.btnGroup}>
               <Button
                 type="submit"
-                name="Proceed"
+                name="Login"
                 disabled={disableButton}
                 color={
                   disableButton ? "rgb(47, 49, 146)" : "rgb(231, 246, 254)"
