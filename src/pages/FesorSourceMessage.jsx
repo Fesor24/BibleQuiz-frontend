@@ -3,7 +3,7 @@ import SourceMessage from '../components/SourceMessage'
 
 function FesorSourceMessage() {
 
-    const source = "Questions were gotten from teachings in Church, personal study and other sources";
+    const source = "Questions here will be updated regularly";
 
   return (
     <SourceMessage source={source} name="Proceed" link="/fesor-questions" />
