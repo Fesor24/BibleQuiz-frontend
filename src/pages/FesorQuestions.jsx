@@ -74,11 +74,11 @@ function FesorQuestions() {
           });
       }
 
-      if (!fesorQuestions) {
+      if (questions?.length === 0) {
         fetchAllFesorQuestions();
       }
     }
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     document.title = "Fesor's Questions";

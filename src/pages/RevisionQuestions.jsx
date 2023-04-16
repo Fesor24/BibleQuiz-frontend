@@ -68,11 +68,11 @@ function RevisionQuestions() {
           });
       }
 
-      if (!revisionQuestions) {
+      if (questions?.length === 0) {
         fetchAllRevisionQuestions();
       }
     }
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     document.title = "Revision Questions";

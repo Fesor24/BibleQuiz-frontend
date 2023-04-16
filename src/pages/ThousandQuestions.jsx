@@ -72,13 +72,13 @@ function ThousandQuestions() {
           });
       }
 
-      if (!thousandQuestions) {
+      if (questions?.length === 0) {
         fetchAllThousandQuestions();
       }
     } else {
       return;
     }
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     document.title = "Thousand Questions";
