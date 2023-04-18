@@ -73,7 +73,7 @@
 
 @media screen and (min-width:915px){
     .formBox input{
-        padding: 26px 70px;
+        padding: 15px 80px;
         font-size: 2rem;
     }
      .linkText{
@@ -83,11 +83,11 @@
 
 @media screen and (min-width:1000px){
     .formBox input{
-        padding: 26px 140px;
-        font-size: 2.4rem;
+        padding: 15px 80px;
+        font-size: 1.6rem;
     }
     .linkText{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 }
 
