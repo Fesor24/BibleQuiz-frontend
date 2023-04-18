@@ -29,12 +29,14 @@ body, html{
 .container{
 	width:100%;
 	min-height: 100vh;
+	max-height: 100vh;
     /* background: linear-gradient(to right, rgb(29, 26, 26), rgb(95, 52, 52)); */
 	background: linear-gradient(to right, rgb(130, 166, 185), rgb(47, 49, 146));
     display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
+	/* position: relative; */
+	overflow-x: hidden;
 }
 
 .mainWrapper{
@@ -69,28 +71,28 @@ body, html{
 
 .link{
     padding-top: 1rem;
-    color: rgb(47, 49, 146);
+    color: rgb(231, 246, 254);
     text-decoration: none;
 	font-size: calc(1rem + .7vw);
 }
 
-.developer{
+/* .developer{
 	position: absolute;
 	bottom:0;
 	padding-bottom: 1rem;
 	color: hsl(38, 61%, 73%);
 	font-size: calc(1rem + .7vw);
-}
+} */
 
 .info{
 	color: hsl(38, 61%, 73%);
 }
 
-.developer a{
+/* .developer a{
 	color: hsla(38, 61%, 73%, 0.8);
 	font-weight: bold;
 	text-decoration: none;
-}
+} */
 
 @keyframes slide-in{
 	0%{
