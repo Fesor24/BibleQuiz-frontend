@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "../../components/Button";
 import toastr from "toastr";
@@ -103,10 +103,10 @@ function Login(props) {
 
           const relPath = localStorage.getItem('relPath');
 
-          console.log(relPath, "relpath from login")
+          // console.log(relPath, "relpath from login")
 
           if (relPath) {
-            console.log("relpath hit");
+            // console.log("relpath hit");
             navigate(relPath);
             localStorage.removeItem('relPath')
           }
@@ -124,6 +124,10 @@ function Login(props) {
         toastr.error("Unauthorized");
       });
   };
+
+  const removeRedirectUrl = () => {
+    localStorage.removeItem("relPath")
+  }
 
   return (
     <div className={styles.container}>
@@ -169,7 +173,7 @@ function Login(props) {
               />
               &nbsp;&nbsp;
               <Link to="/category">
-                <Button name="Back" />
+                <Button name="Back" click={removeRedirectUrl} />
               </Link>
             </div>
           </div>
