@@ -89,7 +89,7 @@ function Login(props) {
     setDisableButton(true);
     setDisableSecButton(true);
 
-    setTimeout(() => {}, 2000)
+    setTimeout(() => {}, 3000)
     // console.log(formData);
     await loginUser(formData)
       .then((response) => {
@@ -186,8 +186,12 @@ function Login(props) {
                 }
                 position="relative"
               >
-                &nbsp; &nbsp;
-                {isLoading && <Spinner />}
+                
+                {isLoading ? (
+                  <Spinner />
+                ) : (
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                )}
               </Button>
               &nbsp;&nbsp;
               <Link to="/category">

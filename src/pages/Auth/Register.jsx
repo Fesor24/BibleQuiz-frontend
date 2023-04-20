@@ -6,6 +6,7 @@ import styles from "../../styles/Home.module.css";
 import authStyles from "../../styles/Auth.module.css";
 import { useRegisterUser } from "../../api/ApiClient";
 import produce from "immer";
+import Spinner from "../../components/spinner";
 
 function Register() {
   const navigate = useNavigate();
@@ -25,6 +26,10 @@ function Register() {
   });
 
   const [disableButton, setDisableButton] = useState(true);
+
+  const [disableSecButton, setDisableSecButton] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const registerUser = useRegisterUser();
 
@@ -116,6 +121,11 @@ function Register() {
       toastr.error("Fill the missing fields");
       return;
     } else {
+       setIsLoading(true);
+       setDisableButton(true);
+       setDisableSecButton(true);
+
+       setTimeout(() => {}, 3000);
       await registerUser(formData)
         .then((response) => {
           if (response.data.successful) {
@@ -124,28 +134,25 @@ function Register() {
             localStorage.setItem(
               "token",
               JSON.stringify(response.data.result.token)
-              
             );
-              toastr.success("Registered");
+            toastr.success("Registered");
 
             if (response.data.result.permission === 1) {
               localStorage.setItem("hasAccess", JSON.stringify(true));
-              
             } else {
               localStorage.setItem("hasAccess", JSON.stringify(false));
             }
-              const relPath = localStorage.getItem("relPath");
+            const relPath = localStorage.getItem("relPath");
 
-              // console.log(relPath, "relpath from login");
+            // console.log(relPath, "relpath from login");
 
-              if (relPath) {
-                // console.log("relpath hit");
-                navigate(relPath);
-                localStorage.removeItem("relPath");
-              } else {
-                navigate("/category");
-              }
-
+            if (relPath) {
+              // console.log("relpath hit");
+              navigate(relPath);
+              localStorage.removeItem("relPath");
+            } else {
+              navigate("/category");
+            }
           } else {
             console.log(response.data.errorMessage);
             toastr.error("Unauthorized");
@@ -154,9 +161,18 @@ function Register() {
         .catch((error) => {
           console.log(error);
           toastr.error("Unauthorized");
+        })
+        .finally(() => {
+          setIsLoading(false);
+          setDisableButton(false);
+          setDisableSecButton(false);
         });
     }
   };
+
+    const removeRedirectUrl = () => {
+      localStorage.removeItem("relPath");
+    };
 
   return (
     <div className={styles.container}>
@@ -217,10 +233,31 @@ function Register() {
                     ? "2px solid rgb(47, 49, 146)"
                     : "2px solid rgb(231, 246, 254)"
                 }
-              />
+              >
+                {isLoading ? (
+                  <Spinner />
+                ) : (
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                )}
+              </Button>
               &nbsp;&nbsp;
               <Link to="/category">
-                <Button name="Back" />
+                <Button
+                  name="Back"
+                  disabled={disableSecButton}
+                  click={removeRedirectUrl}
+                  color={
+                    disableSecButton ? "rgb(47, 49, 146)" : "rgb(231, 246, 254)"
+                  }
+                  backgroundColor={
+                    disableSecButton ? "rgb(231, 246, 254)" : "rgb(47, 49, 146)"
+                  }
+                  border={
+                    disableSecButton
+                      ? "2px solid rgb(47, 49, 146)"
+                      : "2px solid rgb(231, 246, 254)"
+                  }
+                />
               </Link>
             </div>
           </div>
