@@ -6,6 +6,7 @@ import styles from "../../styles/Home.module.css";
 import authStyles from "../../styles/Auth.module.css";
 import { useLoginUser } from "../../api/ApiClient";
 import produce from "immer";
+import Spinner from "../../components/spinner"
 
 function Login(props) {
   const navigate = useNavigate();
@@ -23,6 +24,10 @@ function Login(props) {
   });
 
   const [disableButton, setDisableButton] = useState(true);
+
+  const [disableSecButton, setDisableSecButton] = useState(false)
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const loginUser = useLoginUser();
 
@@ -80,8 +85,12 @@ function Login(props) {
       toastr.error("Fill the missing fields");
       return;
     }
+    setIsLoading(true);
+    setDisableButton(true);
+    setDisableSecButton(true);
 
-    console.log(formData);
+    setTimeout(() => {}, 2000)
+    // console.log(formData);
     await loginUser(formData)
       .then((response) => {
         if (response.data.successful) {
@@ -122,6 +131,11 @@ function Login(props) {
       .catch((error) => {
         console.log(error);
         toastr.error("Unauthorized");
+      })
+      .finally(() => {
+          setIsLoading(false);
+          setDisableButton(false);
+          setDisableSecButton(false);
       });
   };
 
@@ -170,10 +184,29 @@ function Login(props) {
                     ? "2px solid rgb(47, 49, 146)"
                     : "2px solid rgb(231, 246, 254)"
                 }
-              />
+                position="relative"
+              >
+                &nbsp; &nbsp;
+                {isLoading && <Spinner />}
+              </Button>
               &nbsp;&nbsp;
               <Link to="/category">
-                <Button name="Back" click={removeRedirectUrl} />
+                <Button
+                  name="Back"
+                  click={removeRedirectUrl}
+                  disabled={disableSecButton}
+                  color={
+                    disableSecButton ? "rgb(47, 49, 146)" : "rgb(231, 246, 254)"
+                  }
+                  backgroundColor={
+                    disableSecButton ? "rgb(231, 246, 254)" : "rgb(47, 49, 146)"
+                  }
+                  border={
+                    disableSecButton
+                      ? "2px solid rgb(47, 49, 146)"
+                      : "2px solid rgb(231, 246, 254)"
+                  }
+                />
               </Link>
             </div>
           </div>

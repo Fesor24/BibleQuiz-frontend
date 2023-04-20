@@ -111,8 +111,8 @@
 
 @media screen and (min-width:560px) {
     .btn{
-        font-size: 1.3rem;
-
+        font-size: 1.6rem;
+        padding: 12px 15px;
     }
 
 }

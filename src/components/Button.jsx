@@ -15,7 +15,8 @@ function Button({
   width,
   borderRadius,
   fontSize,
-  border
+  border,
+  position
 }) {
   return (
     <button
@@ -32,7 +33,8 @@ function Button({
         width: width,
         borderRadius: borderRadius,
         fontSize: fontSize,
-        border: border
+        border: border,
+        position: position,
       }}
     >
       {name} &nbsp;{children}
