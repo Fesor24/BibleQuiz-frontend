@@ -8,6 +8,7 @@ function Category() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
   useEffect(() => {
     document.title = "Category";
 
@@ -27,7 +28,6 @@ function Category() {
   var phoneButton = curWidth < desiredWidth;
 
   const handleLogOut = () =>{
-    setIsLoggedIn(false);
     localStorage.removeItem("token");
     localStorage.removeItem("hasAccess");
   }
