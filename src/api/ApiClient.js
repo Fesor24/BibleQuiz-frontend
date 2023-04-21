@@ -2,7 +2,7 @@ import axios from "axios";
 import ApiRoutes from "./ApiRoutes";
 
 
- axios.defaults.baseURL = ApiRoutes.BASE_URL;
+//  axios.defaults.baseURL = ApiRoutes.BASE_URL;
 
  // Hook to fetch thousand questions
  export function useFetchThousandQuestions(){
@@ -108,4 +108,16 @@ import ApiRoutes from "./ApiRoutes";
     }
 
     return fetchUserByEmail;
+ }
+
+ export function useDeleteRevisionQuestions(){
+    async function deleteRevisionQuestions(token){
+        var response = axios.delete(ApiRoutes.DeleteQuestions, {
+            headers: {Authorization: `Bearer ${token}`}
+        });
+
+        return response;
+    }
+
+    return deleteRevisionQuestions;
  }
