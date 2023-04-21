@@ -18,3 +18,9 @@ export const checkTokenForExpiry = () => {
 
   return true;
 };
+
+export const GetFirstNameFromToken = (token) =>{
+  const decodedToken = jwtDecode(token);
+
+  return decodedToken.given_name
+}
