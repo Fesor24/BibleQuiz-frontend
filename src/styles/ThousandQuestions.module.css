@@ -46,7 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(255, 255, 255);
+    background: rgb(231, 246, 254);
 }
 
 .blank{
@@ -90,15 +90,6 @@
     
 }
 
-.cancel{
-    position: absolute;
-    right: 0;
-    top:0;
-    margin-right: 3rem;
-    margin-top: 3rem;
-    color: hsl(38, 61%, 73%);
-    cursor: pointer;
-}
 
 .openMenu{
     position: absolute;
