@@ -62,7 +62,7 @@ function FesorQuestions() {
         await fetchFesorQuestions(token)
           .then((response) => {
             if (response.data.successful) {
-              console.log(response.data.result);
+              // console.log(response.data.result);
               setFesorQuestions(response.data.result);
               dispatch(Action.startQuizAction(response.data.result));
             } else {
@@ -74,9 +74,13 @@ function FesorQuestions() {
           });
       }
 
-      if (questions?.length === 0) {
+      if(fesorQuestions?.length === 0 || fesorQuestions === undefined){
         fetchAllFesorQuestions();
       }
+        else{
+          return;
+        }
+      
     }
   }, []);
 
@@ -109,6 +113,7 @@ function FesorQuestions() {
 
   // Setting timer function in use effect
   useEffect(() => {
+
     if (countdown > 0) {
       timerId = setTimeout(() => {
         setCountdown(countdown - 1);
@@ -167,7 +172,6 @@ function FesorQuestions() {
     if (questions?.length - questionsAttempted === 1) {
       setQuestionsFinished(true);
     }
-    // setAttemptedQuestions(attemptedQuestions + 1);
   };
 
   const handleSaveButtonClick = () => {
@@ -213,10 +217,6 @@ function FesorQuestions() {
     localStorage.removeItem("fesorQuestionsAttempted");
     dispatch(Action.resetIndexAction());
   };
-
-   const closeSideBar = () => {
-     setSideBar("-450px");
-   };
 
    const openSideBar = () => {
      setSideBar("0");
@@ -277,6 +277,7 @@ function FesorQuestions() {
                           handleNextButtonClick={handleNextButtonClick}
                           handleResetButtonClick={handleResetButtonClick}
                           handleSaveButtonClick={handleSaveButtonClick}
+                          isRevisionQuestionSection={false}
                         />
                       </>
                     )}

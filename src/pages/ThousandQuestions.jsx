@@ -60,7 +60,8 @@ function ThousandQuestions() {
         await fetchThousandQuestions(token)
           .then((response) => {
             if (response.data.successful) {
-              console.log(response.data.result);
+              
+              // console.log(response.data.result);
               setThousandQuestions(response.data.result);
               dispatch(Action.startQuizAction(response.data.result));
             } else {
@@ -72,12 +73,15 @@ function ThousandQuestions() {
           });
       }
 
-      if (questions?.length === 0) {
+      if(thousandQuestions?.length === 0 || thousandQuestions === undefined){
         fetchAllThousandQuestions();
       }
-    } else {
-      return;
-    }
+      else{
+        return;
+      }
+        
+      
+    } 
   }, []);
 
   useEffect(() => {
@@ -218,10 +222,6 @@ function ThousandQuestions() {
     dispatch(Action.resetIndexAction());
   };
 
-  const closeSideBar =()=>{
-    setSideBar('-450px')
-  }
-
   const openSideBar =() => {
     setSideBar('0');
   }
@@ -275,6 +275,7 @@ function ThousandQuestions() {
                           handleNextButtonClick={handleNextButtonClick}
                           handleResetButtonClick={handleResetButtonClick}
                           handleSaveButtonClick={handleSaveButtonClick}
+                          isRevisionQuestionSection={false}
                         />
                       </>
                     )}

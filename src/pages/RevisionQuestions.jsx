@@ -5,10 +5,11 @@ import Timer from "../components/Timer";
 import Question from "../components/Question";
 import Button from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useFetchRevisionQuestions } from "../api/ApiClient";
+import { useFetchRevisionQuestions, useDeleteRevisionQuestions } from "../api/ApiClient";
 import { useSelector, useDispatch } from "react-redux";
 import * as Action from "../redux/revisionQuestionSlice";
 import RequireAuth from "../components/Auth/requireAuth";
+import toastr from "toastr";
 
 function RevisionQuestions() {
   // const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -20,6 +21,8 @@ function RevisionQuestions() {
   const [revisionQuestions, setRevisionQuestions] = useState();
 
   const [questionsFinished, setQuestionsFinished] = useState(false);
+
+  const [refreshState, setRefreshState] = useState(false);
 
   const questions = useSelector((state) => state.revisionQuestions.queue);
 
@@ -43,6 +46,29 @@ function RevisionQuestions() {
     useSelector((state) => state.revisionQuestions);
 
   const fetchRevisionQuestions = useFetchRevisionQuestions();
+
+  const deleteRevisionQuestions = useDeleteRevisionQuestions();
+
+  const deleteUserRevisionQuestions = async ()=>{
+    const token = JSON.parse(localStorage.getItem("token"));
+    
+    await deleteRevisionQuestions(token)
+    .then((response) => {
+      setRevisionQuestions([])
+      if(response.data.successful){
+        setRefreshState(true)
+        toastr.success("Revision questions deleted")
+      }
+      else{
+        console.log("err",response.data.errorMessage)
+        toastr.error("Error! Questions not removed");
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+   
+  }
 
   useEffect(() => {
     const access = JSON.parse(localStorage.getItem("hasAccess"));
@@ -68,11 +94,15 @@ function RevisionQuestions() {
           });
       }
 
-      if (questions?.length === 0) {
+      if (revisionQuestions?.length === 0 || revisionQuestions === undefined) {
         fetchAllRevisionQuestions();
+        
+      }
+      else{
+        return;
       }
     }
-  }, []);
+  }, [refreshState]);
 
   useEffect(() => {
     document.title = "Revision Questions";
@@ -85,23 +115,27 @@ function RevisionQuestions() {
       localStorage.getItem("revisionQuestionsAttempted")
     );
 
-    console.log(correct, wrong, index);
+      if(index){
+        if (index > questions?.length) {
+          dispatch(Action.resetIndexAction());
+        } else {
+          dispatch(Action.setCorrectNumberAction(correct));
+          dispatch(Action.setWrongNumberAction(wrong));
+          dispatch(Action.setIndexNumberAction(index));
+          dispatch(Action.setQuestionsAttemptedAction(index));
 
-    if (index) {
-      dispatch(Action.setCorrectNumberAction(correct));
-      dispatch(Action.setWrongNumberAction(wrong));
-      dispatch(Action.setIndexNumberAction(index));
-      dispatch(Action.setQuestionsAttemptedAction(index));
-
-      if (correct + wrong === index) {
-        setDisableButtons(true);
+          if (correct + wrong === index) {
+            setDisableButtons(true);
+          }
+        }
       }
-    }
   }, []);
 
   // Countdown state
   const [countdown, setCountdown] = useState(countdownNumber);
   const [finishedTimer, setFinishedTimer] = useState(true);
+
+  
 
   let timerId;
 
@@ -196,10 +230,6 @@ function RevisionQuestions() {
     dispatch(Action.resetIndexAction());
   };
 
-    const closeSideBar = () => {
-      setSideBar("-450px");
-    };
-
     const openSideBar = () => {
       setSideBar("0");
     };
@@ -224,6 +254,7 @@ function RevisionQuestions() {
             </div>
           ) : (
             <div className={style.container}>
+             
               <div className={style.displayPage}>
                 <div className={style.sideBar} style={{ left: sideBar }}>
                   {/* <p className={style.cancel}>
@@ -255,6 +286,10 @@ function RevisionQuestions() {
                         handleNextButtonClick={handleNextButtonClick}
                         handleResetButtonClick={handleResetButtonClick}
                         handleSaveButtonClick={handleSaveButtonClick}
+                        isRevisionQuestionSection={true}
+                        handleDeleteRevisionQuestions={
+                          deleteUserRevisionQuestions
+                        }
                       />
                     </>
                   )}
