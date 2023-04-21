@@ -10,7 +10,7 @@ import RevisionQuestions from "./pages/RevisionQuestions";
 import FesorQuestions from "./pages/FesorQuestions";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
-import Admin from "./pages/Admin";
+// import Admin from "./pages/Admin";
 import ThousandQSourceMessage from "./pages/ThousandQSourceMessage";
 import FesorSourceMessage from "./pages/FesorSourceMessage";
 
@@ -29,7 +29,7 @@ function App() {
         <Route path= "tq-source" element= {<ThousandQSourceMessage />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="admin" element={<Admin/>}/>
+        {/* <Route path="admin" element={<Admin/>}/> */}
       </Routes>
     </BrowserRouter>
   );
