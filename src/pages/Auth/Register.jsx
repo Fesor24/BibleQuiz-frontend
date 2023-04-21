@@ -7,6 +7,7 @@ import authStyles from "../../styles/Auth.module.css";
 import { useRegisterUser } from "../../api/ApiClient";
 import produce from "immer";
 import Spinner from "../../components/spinner";
+import { GetFirstNameFromToken } from "../../helper/coreFunction";
 
 function Register() {
   const navigate = useNavigate();
@@ -135,13 +136,20 @@ function Register() {
               "token",
               JSON.stringify(response.data.result.token)
             );
-            toastr.success("Registered");
+
+            let firstName = GetFirstNameFromToken(response.data.result.token);
+
+            firstName = firstName === null ? "user" : firstName;
+            
 
             if (response.data.result.permission === 1) {
               localStorage.setItem("hasAccess", JSON.stringify(true));
             } else {
               localStorage.setItem("hasAccess", JSON.stringify(false));
             }
+
+            toastr.success(`Welcome ${firstName}`);
+
             const relPath = localStorage.getItem("relPath");
 
             // console.log(relPath, "relpath from login");
@@ -203,7 +211,7 @@ function Register() {
             </span>
             <input
               type="text"
-              placeholder="name@gtcc.com"
+              placeholder="Enter your email"
               name="email"
               onChange={(e) => handleValidation(e)}
             />

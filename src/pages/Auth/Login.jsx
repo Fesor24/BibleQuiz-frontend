@@ -7,6 +7,7 @@ import authStyles from "../../styles/Auth.module.css";
 import { useLoginUser } from "../../api/ApiClient";
 import produce from "immer";
 import Spinner from "../../components/spinner"
+import { GetFirstNameFromToken } from "../../helper/coreFunction";
 
 function Login(props) {
   const navigate = useNavigate();
@@ -99,6 +100,10 @@ function Login(props) {
             JSON.stringify(response.data.result.token)
           );
 
+          let firstName = GetFirstNameFromToken(response.data.result.token);
+
+          firstName = firstName === null ? "user" : firstName;
+
           if (response.data.result.permission === 1) {
             localStorage.setItem("hasAccess", JSON.stringify(true));
             // navigate("category");
@@ -108,7 +113,7 @@ function Login(props) {
           } else {
             localStorage.setItem("hasAccess", JSON.stringify(false));
           }
-          toastr.success("Signed in");
+          toastr.success(`Hello ${firstName}`);
 
           const relPath = localStorage.getItem('relPath');
 
