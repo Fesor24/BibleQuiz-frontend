@@ -73,8 +73,8 @@
 
 @media screen and (min-width:915px){
     .formBox input{
-        padding: 15px 80px;
-        font-size: 2rem;
+        padding: 15px 25px;
+        font-size: 1.5rem;
     }
      .linkText{
         font-size: 1.4rem;
