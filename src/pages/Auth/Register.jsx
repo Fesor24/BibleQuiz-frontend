@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../components/Button";
 import toastr from "toastr";
 import styles from "../../styles/Home.module.css";
@@ -13,15 +13,11 @@ function Register() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    firstName: undefined,
-    lastName: undefined,
     email: undefined,
     password: undefined,
   });
 
   const [formErrors, setFormErrors] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
   });
@@ -34,37 +30,14 @@ function Register() {
 
   const registerUser = useRegisterUser();
 
+  useEffect(() => {
+    document.title = "Register";
+  })
+
   const handleValidation = (e) => {
     const { name, value } = e.target;
 
     switch (name) {
-      case "firstName":
-        setFormErrors(
-          produce((draft) => {
-            if (value === undefined || value === null || value.length === 0) {
-              draft.firstName = "First name is required";
-              setDisableButton(true);
-            } else {
-              draft.firstName = "";
-              setDisableButton(false);
-            }
-          })
-        );
-
-        break;
-      case "lastName":
-        setFormErrors(
-          produce((draft) => {
-            if (value === undefined || value === null || value.length === 0) {
-              draft.lastName = "Last name is required";
-              setDisableButton(true);
-            } else {
-              draft.lastName = "";
-              setDisableButton(false);
-            }
-          })
-        );
-        break;
 
       case "email":
         setFormErrors(
@@ -110,12 +83,8 @@ function Register() {
     e.preventDefault();
 
     if (
-      formData.firstName === undefined ||
-      formData.lastName === undefined ||
       formData.email === undefined ||
       formData.password === undefined ||
-      formErrors.firstName ||
-      formErrors.lastName ||
       formErrors.password ||
       formErrors.email
     ) {
@@ -191,24 +160,6 @@ function Register() {
           onSubmit={(e) => handleSubmitForm(e)}
         >
           <div className={authStyles.formBox}>
-            <input
-              type="text"
-              name="firstName"
-              placeholder="Enter your first name"
-              onChange={(e) => handleValidation(e)}
-            />
-            <span className={authStyles.validateText}>
-              {formErrors.firstName}
-            </span>
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Enter your last name"
-              onChange={(e) => handleValidation(e)}
-            />
-            <span className={authStyles.validateText}>
-              {formErrors.lastName}
-            </span>
             <input
               type="text"
               placeholder="Enter your email"
