@@ -85,23 +85,35 @@ function FesorQuestions() {
   }, []);
 
   useEffect(() => {
-    document.title = "Fesor's Questions";
+    const title = "Fesor's Questions"
+    document.title = title;
 
     // dispatch(Action.resetOpacityAction());
+
+    console.log("I rendered")
 
     const correct = JSON.parse(localStorage.getItem("fesorCorrectAnswer"));
     const wrong = JSON.parse(localStorage.getItem("fesorWrongAnswer"));
     const index = JSON.parse(localStorage.getItem("fesorQuestionsAttempted"));
+    console.log("back from local storage")
 
-    if (index) {
+    if (index > 0 && index !== undefined) {
       dispatch(Action.setCorrectNumberAction(correct));
       dispatch(Action.setWrongNumberAction(wrong));
       dispatch(Action.setIndexNumberAction(index));
       dispatch(Action.setQuestionsAttemptedAction(index));
 
+      console.log("I rendered from index if block")
+
       if (correct + wrong === index) {
         setDisableButtons(true);
       }
+    }
+    else{
+      dispatch(Action.setCorrectNumberAction(0));
+      dispatch(Action.setWrongNumberAction(0));
+      dispatch(Action.setIndexNumberAction(0));
+      dispatch(Action.setQuestionsAttemptedAction(0));
     }
   }, []);
 
@@ -154,7 +166,7 @@ function FesorQuestions() {
       // increaseWrongAnswers();
       // console.log(state);
     }
-  }, [countdown]);
+  }, [countdown, questionsAttempted]);
 
   const clearTimer = () => {
     clearTimeout(timerId);
@@ -288,7 +300,7 @@ function FesorQuestions() {
                           
                           <Link to="/category">
                             <Button
-                              name="Back to Category"
+                              name="Back to Section"
                               click={handleBackToCategory}
                             >
                               <i

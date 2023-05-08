@@ -42,7 +42,7 @@ function Question({
             console.log(response.data.successful);
           } else {
             console.log(response.data.errorMessage);
-            message.error("Failed to add question to revision table");
+            // message.error("Failed to add question to revision table");
           }
         })
         .catch((error) => {

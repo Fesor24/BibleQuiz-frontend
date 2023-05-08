@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../components/Button";
 import toastr from "toastr";
 import styles from "../../styles/Home.module.css";
@@ -31,6 +31,10 @@ function Login(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   const loginUser = useLoginUser();
+
+  useEffect(() => {
+    document.title = "Login";
+  })
 
   const handleValidation = (e) => {
     const { name, value } = e.target;

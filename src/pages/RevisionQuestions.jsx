@@ -119,14 +119,23 @@ function RevisionQuestions() {
         if (index > questions?.length) {
           dispatch(Action.resetIndexAction());
         } else {
-          dispatch(Action.setCorrectNumberAction(correct));
-          dispatch(Action.setWrongNumberAction(wrong));
-          dispatch(Action.setIndexNumberAction(index));
-          dispatch(Action.setQuestionsAttemptedAction(index));
 
-          if (correct + wrong === index) {
-            setDisableButtons(true);
+          if (index > 0 && index !== undefined) {
+            dispatch(Action.setCorrectNumberAction(correct));
+            dispatch(Action.setWrongNumberAction(wrong));
+            dispatch(Action.setIndexNumberAction(index));
+            dispatch(Action.setQuestionsAttemptedAction(index));
+
+            if (correct + wrong === index) {
+              setDisableButtons(true);
+            }
+          } else {
+            dispatch(Action.setCorrectNumberAction(0));
+            dispatch(Action.setWrongNumberAction(0));
+            dispatch(Action.setIndexNumberAction(0));
+            dispatch(Action.setQuestionsAttemptedAction(0));
           }
+          
         }
       }
   }, []);
@@ -157,7 +166,7 @@ function RevisionQuestions() {
       // increaseWrongAnswers();
       // console.log(state);
     }
-  }, [countdown]);
+  }, [countdown, questionsAttempted]);
 
   const clearTimer = () => {
     clearTimeout(timerId);
@@ -246,7 +255,7 @@ function RevisionQuestions() {
                 <h3>Questions will be added here when you miss any question</h3>
                 <i class="fa-solid fa-empty-set"></i>
                 <Link to="/category">
-                  <Button name="Back to Category">
+                  <Button name="Back to Section">
                     <i class="fa-sharp fa-solid fa-backward"></i>
                   </Button>
                 </Link>
@@ -299,7 +308,7 @@ function RevisionQuestions() {
                       <div className={style.startAgain}>
                         <Link to="/category">
                           <Button
-                            name="Back to Category"
+                            name="Back to Section"
                             click={handleBackToCategory}
                           >
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>

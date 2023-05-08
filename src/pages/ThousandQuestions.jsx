@@ -61,7 +61,7 @@ function ThousandQuestions() {
           .then((response) => {
             if (response.data.successful) {
               
-              // console.log(response.data.result);
+              console.log(response.data.result);
               setThousandQuestions(response.data.result);
               dispatch(Action.startQuizAction(response.data.result));
             } else {
@@ -85,7 +85,11 @@ function ThousandQuestions() {
   }, []);
 
   useEffect(() => {
+
+    console.log("title");
     document.title = "Thousand Questions";
+
+    console.log("I rendered")
 
     // dispatch(Action.resetOpacityAction());
 
@@ -95,15 +99,22 @@ function ThousandQuestions() {
       localStorage.getItem("thousandQuestionsAttempted")
     );
 
-    if (index) {
+    if (index > 0 && index !== undefined) {
       dispatch(Action.setCorrectNumberAction(correct));
       dispatch(Action.setWrongNumberAction(wrong));
       dispatch(Action.setIndexNumberAction(index));
       dispatch(Action.setQuestionsAttemptedAction(index));
 
+      console.log("I rendered from index if block");
+
       if (correct + wrong === index) {
         setDisableButtons(true);
       }
+    } else {
+      dispatch(Action.setCorrectNumberAction(0));
+      dispatch(Action.setWrongNumberAction(0));
+      dispatch(Action.setIndexNumberAction(0));
+      dispatch(Action.setQuestionsAttemptedAction(0));
     }
   }, []);
 
@@ -285,7 +296,7 @@ function ThousandQuestions() {
                         <div className={style.startAgain}>
                           <Link to="/category">
                             <Button
-                              name="Back to Category"
+                              name="Back to Section"
                               click={handleBackToCategory}
                             >
                               <i

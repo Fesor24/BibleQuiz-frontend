@@ -30,6 +30,7 @@ function Category() {
   const handleLogOut = () =>{
     localStorage.removeItem("token");
     localStorage.removeItem("hasAccess");
+    setIsLoggedIn(false)
   }
 
   return (
